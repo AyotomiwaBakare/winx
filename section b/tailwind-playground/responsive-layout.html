@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+         <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 font-sans">
+    <div class="p-6 pb-2">
+        <h1 class="text-2xl font-bold text-gray-900 mb-1"> Exercise 04- Responsive Design
+        </h1>
+        <div class="flex gap-2 mb-6 text-xs">
+            <span clsss="bg-blue-100 text-blue-700 px-2 py-1 rounded font-mono"> sm:> 640px</span>
+            <span clsss="bg-blue-100 text-purple-700 px-2 py-1 rounded font-mono">md:>768px</span>
+            <span clsss="bg-blue-100 text-green-700 px-2 py-1 rounded font-mono">lg:>1024</span>
+            <span clsss="bg-blue-100 text-amber-700 px-2 py-1 rounded font-mono">xl:>1280</span>
+        </div>
+    </div>
+    <!-- Responsive Typography -->
+     <section class="px-4 md:px-6">
+        <h2 class="text-lg font-semibold text-gray-700 mb-2 border-b pb-2">Part-A: Responsive Typography</h2>
+        <!-- bg-gradient-to-br: diagonal gradient flowing bottom-right; from-blue-600: starts at #2563eb; to-blue-800: end at #1e40af(darker blue)-->
+        <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl text-white text-center p-6 md:p-10 lg:p-16 mb-6">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">Campus Hub - Your student Portal</h1>
+            <!-- Responsive Text -->
+            <p class="text-sm md:text-base lg:text-lg text-blue-100 mb-6">Manage your course, schedule and grades in one place</p>
+            <!-- Responsive Button -->
+              <button class="bg-white text-blue-600 font-semibold rounded-xl hove:bg-blue-50 text-sm md:text-base px-4 md:px-6 py-2"> Get started</button>
+        </div>
+        </div>
+     </section>
+     <!-- Responsive Navbar -->
+      <section class="px-6 mb-10">
+        <h2 class="text-lg font-semibold text-gray-700 mb-2 border-b pb-2">Responsive Navbar</h2>
+        <p class="px-6 mb-10">Hamburger visible only on mobile. Nav links Hidden on mobile, visible on lg+ </p>
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+            <nav class="flex item-center justify-between px-6 py-4 border-b border-gray-100">
+                <span class="text-lg font-bold text-gray-900">Campus Hub</span>
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Course</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Schedule</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Grades</a>
+                    <a href="#" class="text-sm text-gray-600 hover:text-blue-600">Profile</a>
+                </div>
+                <button class="flex lg:hidden flex-col gap-1.5 p-2">
+                    <span class="block w-5 h-0.5 bg-gray-600"></span>
+                    <span class="block w-5 h-0.5 bg-gray-600"></span>
+                    <span class="block w-5 h-0.5 bg-gray-600"></span>
+                    <span class="block w-5 h-0.5 bg-gray-600"></span>
+                </button>
+            </nav>
+        </div>
+      </section>
+</body>
+</html>
