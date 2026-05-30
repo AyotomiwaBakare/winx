@@ -47,3 +47,129 @@ let miToKm = (value) => value / 0.621371;
 let cToF = (value) => (value * 9/5) + 32;
 let fToC = (value) => (value - 32) * 5/9;
 
+function convertValues(input, fromUnit, toUnit)
+{
+    const converter = createConversion(fromUnit, toUnit);
+ 
+    // Array
+    if (input.includes(","))
+    {
+        const values = input
+            .split(",")
+            .map(value => Number(value.trim()));
+ 
+        return values.map(value =>
+            Number(converter(value).toFixed(2))
+        );
+    }
+ 
+    // Single Value
+    return Number(
+        converter(Number(input)).toFixed(2)
+    );
+}
+ 
+ 
+// =========================
+// Weight Buttons
+// =========================
+ 
+function convertKgToLb()
+{
+    const input =
+        document.getElementById("kgInput").value;
+ 
+    const result =
+        convertValues(input, "kg", "lb");
+ 
+    document.getElementById("kgResult")
+        .textContent = JSON.stringify(result);
+}
+ 
+function convertLbToKg()
+{
+    const input =
+        document.getElementById("lbInput").value;
+ 
+    const result =
+        convertValues(input, "lb", "kg");
+ 
+    document.getElementById("lbResult")
+        .textContent = JSON.stringify(result);
+}
+ 
+ 
+// =========================
+// Distance Buttons
+// =========================
+ 
+function convertKmToMi()
+{
+    const input =
+        document.getElementById("kmInput").value;
+ 
+    const result =
+        convertValues(input, "km", "mi");
+ 
+    document.getElementById("kmResult")
+        .textContent = JSON.stringify(result);
+}
+ 
+function convertMiToKm()
+{
+    const input =
+        document.getElementById("miInput").value;
+ 
+    const result =
+        convertValues(input, "mi", "km");
+ 
+    document.getElementById("miResult")
+        .textContent = JSON.stringify(result);
+}
+ 
+ 
+// =========================
+// Temperature Buttons
+// =========================
+ 
+function convertCToF()
+{
+    const input =
+        document.getElementById("cInput").value;
+ 
+    const result =
+        convertValues(input, "c", "f");
+ 
+    document.getElementById("cResult")
+        .textContent = JSON.stringify(result);
+}
+ 
+function convertFToC()
+{
+    const input =
+        document.getElementById("fInput").value;
+ 
+    const result =
+        convertValues(input, "f", "c");
+ 
+    document.getElementById("fResult")
+        .textContent = JSON.stringify(result);
+}
+ 
+ 
+// =========================
+// Tab Navigation
+// =========================
+ 
+function showTab(tabName)
+{
+    document
+        .querySelectorAll(".tab-content")
+        .forEach(tab =>
+            tab.classList.add("hidden")
+        );
+ 
+    document
+        .getElementById(tabName)
+        .classList.remove("hidden");
+}
