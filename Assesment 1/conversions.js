@@ -71,9 +71,9 @@ function convertValues(input, fromUnit, toUnit)
 }
  
  
-// =========================
+
 // Weight Buttons
-// =========================
+
  
 function convertKgToLb()
 {
@@ -100,9 +100,9 @@ function convertLbToKg()
 }
  
  
-// =========================
+
 // Distance Buttons
-// =========================
+
  
 function convertKmToMi()
 {
@@ -129,9 +129,9 @@ function convertMiToKm()
 }
  
  
-// =========================
+
 // Temperature Buttons
-// =========================
+
  
 function convertCToF()
 {
@@ -158,9 +158,9 @@ function convertFToC()
 }
  
  
-// =========================
+
 // Tab Navigation
-// =========================
+
  
 function showTab(tabName)
 {
