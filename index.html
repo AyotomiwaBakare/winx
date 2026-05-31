@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Winx Converter</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-blue-600 shadow-lg">
+        <div class="max-w-7xl mx-auto px-8 py-6 flex flex-col md:flex-row justify-between items-center">
+
+            <h1 class="text-white text-5xl font-bold">
+                Winx Converter
+            </h1>
+
+            <div class="bg-blue-700 p-2 rounded-2xl flex gap-3 mt-4 md:mt-0">
+
+                <button onclick="showTab('weight')"
+                    class="bg-white text-blue-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-100">
+                    Weight
+                </button>
+
+                <button onclick="showTab('distance')"
+                    class="text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-800">
+                    Distance
+                </button>
+
+                <button onclick="showTab('temperature')"
+                    class="text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-800">
+                    Temperature
+                </button>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-8 py-12">
+
+        <section id="weight" class="tab-content">
+
+            <h2 class="text-5xl font-bold text-slate-700 mb-4">
+                Weight Conversions (kg ↔ lb)
+            </h2>
+
+            <hr class="mb-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                <!-- KG TO LB -->
+
+                <div class="bg-white rounded-3xl shadow-md p-10">
+
+                    <h3 class="text-blue-600 text-3xl font-semibold mb-8">
+                        Kilograms to Pounds
+                    </h3>
+
+                    <label class="text-2xl text-slate-700 block mb-4">
+                        Input (Single Value or Comma-separated List)
+                    </label>
+
+                    <input
+                        id="kgInput"
+                        type="text"
+                        placeholder="e.g. 70 or 50, 80, 100"
+                        class="w-full border rounded-xl p-5 text-xl mb-6">
+
+                    <button
+                        onclick="convertKgToLb()"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white text-2xl font-semibold py-4 rounded-xl">
+                        Convert
+                    </button>
+
+                    <div
+                        id="kgResult"
+                        class="mt-8 bg-gray-100 rounded-xl p-5 min-h-[70px] text-xl">
+                    </div>
+
+                </div>
+
+                <!-- LB TO KG -->
+
+                <div class="bg-white rounded-3xl shadow-md p-10">
+
+                    <h3 class="text-blue-600 text-3xl font-semibold mb-8">
+                        Pounds to Kilograms
+                    </h3>
+
+                    <label class="text-2xl text-slate-700 block mb-4">
+                        Input (Single Value or Comma-separated List)
+                    </label>
+
+                    <input
+                        id="lbInput"
+                        type="text"
+                        placeholder="e.g. 150 or 100, 130, 200"
+                        class="w-full border rounded-xl p-5 text-xl mb-6">
+
+                    <button
+                        onclick="convertLbToKg()"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white text-2xl font-semibold py-4 rounded-xl">
+                        Convert
+                    </button>
+
+                    <div
+                        id="lbResult"
+                        class="mt-8 bg-gray-100 rounded-xl p-5 min-h-[70px] text-xl">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="distance" class="tab-content hidden">
+
+            <h2 class="text-5xl font-bold text-slate-700 mb-4">
+                Distance Conversions (km ↔ mi)
+            </h2>
+
+            <hr class="mb-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                <div class="bg-white rounded-3xl shadow-md p-10">
+
+                    <h3 class="text-green-600 text-3xl font-semibold mb-8">
+                        Kilometres to Miles
+                    </h3>
+
+                    <input
+                        id="kmInput"
+                        type="text"
+                        placeholder="e.g. 10 or 20, 30, 50"
+                        class="w-full border rounded-xl p-5 text-xl mb-6">
+
+                    <button
+                        onclick="convertKmToMi()"
+                        class="w-full bg-green-600 text-white text-2xl font-semibold py-4 rounded-xl">
+                        Convert
+                    </button>
+
+                    <div
+                        id="kmResult"
+                        class="mt-8 bg-gray-100 rounded-xl p-5 min-h-[70px] text-xl">
+                    </div>
+
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-md p-10">
+
+                    <h3 class="text-green-600 text-3xl font-semibold mb-8">
+                        Miles to Kilometres
+                    </h3>
+
+                    <input
+                        id="miInput"
+                        type="text"
+                        placeholder="e.g. 5 or 10, 20, 50"
+                        class="w-full border rounded-xl p-5 text-xl mb-6">
+
+                    <button
+                        onclick="convertMiToKm()"
+                        class="w-full bg-green-600 text-white text-2xl font-semibold py-4 rounded-xl">
+                        Convert
+                    </button>
+
+                    <div
+                        id="miResult"
+                        class="mt-8 bg-gray-100 rounded-xl p-5 min-h-[70px] text-xl">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="temperature" class="tab-content hidden">
+
+            <h2 class="text-5xl font-bold text-slate-700 mb-4">
+                Temperature Conversions (°C ↔ °F)
+            </h2>
+
+            <hr class="mb-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                <div class="bg-white rounded-3xl shadow-md p-10">
+
+                    <h3 class="text-orange-600 text-3xl font-semibold mb-8">
+                        Celsius to Fahrenheit
+                    </h3>
+
+                    <input
+                        id="cInput"
+                        type="text"
+                        placeholder="e.g. 25 or 10, 20, 30"
+                        class="w-full border rounded-xl p-5 text-xl mb-6">
+
+                    <button
+                        onclick="convertCToF()"
+                        class="w-full bg-orange-600 text-white text-2xl font-semibold py-4 rounded-xl">
+                        Convert
+                    </button>
+
+                    <div
+                        id="cResult"
+                        class="mt-8 bg-gray-100 rounded-xl p-5 min-h-[70px] text-xl">
+                    </div>
+
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-md p-10">
+
+                    <h3 class="text-orange-600 text-3xl font-semibold mb-8">
+                        Fahrenheit to Celsius
+                    </h3>
+
+                    <input
+                        id="fInput"
+                        type="text"
+                        placeholder="e.g. 75 or 50, 60, 70"
+                        class="w-full border rounded-xl p-5 text-xl mb-6">
+
+                    <button
+                        onclick="convertFToC()"
+                        class="w-full bg-orange-600 text-white text-2xl font-semibold py-4 rounded-xl">
+                        Convert
+                    </button>
+
+                    <div
+                        id="fResult"
+                        class="mt-8 bg-gray-100 rounded-xl p-5 min-h-[70px] text-xl">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="conversions.js"></script>
+
+</body>
+
+</html>
